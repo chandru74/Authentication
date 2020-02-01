@@ -1,0 +1,19 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EventsService {
+
+  private _eventsUrl = 'http://localhost:3000/api/events';
+  private _special = 'http://localhost:3000/api/special';
+  constructor(private http: HttpClient) { }
+
+  getEvents(){
+    return this.http.get(this._eventsUrl);
+  }
+  getSpecialEvents(){
+    return this.http.get(this._special);
+  }
+}
